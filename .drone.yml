@@ -8,8 +8,7 @@ steps:
   group: build
   commands:
     - npm install
-    - npm run build
-    - npm run test
+    - npm test
 
 - name: sonarqube-analysis
   image: sonarsource/sonar-scanner-cli
