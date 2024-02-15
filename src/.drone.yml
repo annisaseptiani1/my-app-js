@@ -1,0 +1,14 @@
+kind: pipeline
+name: build
+
+steps:
+
+- name: build
+  image: node:10-alpine
+  group: build
+  commands:
+    - npm install
+    - npm run build
+    - npm run test
+    - npm add --dev sonarqube-scanner
+    - npm jest --coverage
