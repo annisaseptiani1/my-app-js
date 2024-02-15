@@ -11,12 +11,10 @@ steps:
     - npm run build
     - npm run test
 
-- name: code-analysis
-  image: committed/drone-sonarqube-node
-  settings:
-     host:
-      from_secret: sonar_host
-    token:
-      from_secret: sonar_token
-    ver: 1.0
-    timeout: 20
+- name: sonarqube-analysis
+  image: sonarsource/sonar-scanner-cli
+  environment :
+    SONAR_HOST_URL: "http://localhost:9000"
+    SONAR_TOKEN: "sqa_47f3d9f8820cf3609ced282ad0e4b8bde5671a71"
+  commands:
+    - sonar-scanner
