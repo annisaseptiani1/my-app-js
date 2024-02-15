@@ -11,4 +11,5 @@ steps:
     - npm run build
     - npm run test
     - npm add --dev sonarqube-scanner
+    - node sonarqube-scanner.js
     - npm jest --coverage
