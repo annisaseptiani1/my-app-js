@@ -6,7 +6,7 @@ steps:
 - name: build
   image: node:latest
   group: build
-   environment:
+  environment:
     SONAR_HOST_URL:
       from_secret: sonar_host_url
     SONAR_TOKEN:
