@@ -8,12 +8,19 @@ steps:
   group: build
   commands:
     - npm install
-    - npm test
+    - node sonarqube-scanner.js
+  environment:
+    SONAR_HOST_URL:
+      from_secret: sonar_host_url
+    SONAR_TOKEN:
+      from_secret: sonar_token
 
-- name: sonarqube-analysis
-  image: sonarsource/sonar-scanner-cli
-  environment :
-    SONAR_HOST_URL: "http://localhost:9000"
-    SONAR_TOKEN: "sqa_47f3d9f8820cf3609ced282ad0e4b8bde5671a71"
-  commands:
-    - sonar-scanner
+# - name: sonarqube-analysis
+#   image: sonarsource/sonar-scanner-cli
+#   environment:
+#     SONAR_HOST_URL:
+#       from_secret: sonar_host_url
+#     SONAR_TOKEN:
+#       from_secret: sonar_token
+#   commands:
+#     - sonar-scanner
