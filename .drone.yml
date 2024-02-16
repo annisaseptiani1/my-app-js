@@ -4,12 +4,11 @@ name: build
 steps:
 
 - name: build
-  image: node:10-alpine
+  image: node:latest
   group: build
   commands:
     - npm install
-    - npm run build
-    - node sonarqube-scanner.js
+    - npm run sonarqube-scan
 
 # - name: sonarqube-analysis
 #   image: sonarsource/sonar-scanner-cli
